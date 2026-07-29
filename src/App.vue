@@ -11,11 +11,10 @@
             Heroes of Crimson
           </div>
           <div class="text-lg md:text-xl pt-4 text-gray-700 font-bold">
-            A singleplayer indie bullet hell game heavily inspired by Realm of
-            the Mad God!
+            A singleplayer bullet hell game heavily inspired by Realm of the Mad God!
           </div>
           <div class="text-md pt-2 text-gray-500">
-            Currently a work in progress!
+            The goal is making a fully fleshed out singleplayer RPG with rougelike and permadeath mechanics with story progression on top of it. Currently a work in progress.
           </div>
           <div class="flex flex-col gap-2 mt-8 links">
             <div class="flex justify-between w-full">
