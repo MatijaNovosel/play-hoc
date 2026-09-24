@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+:root {
+  --sky: #6c2c52;
+  --night: #02050e;
+  --cream: #f5d7bf;
+  --font-pixel: "Jersey 10", "Courier New", monospace;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--cream);
+  font-family: var(--font-pixel);
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
