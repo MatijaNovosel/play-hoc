@@ -20,8 +20,8 @@
         <section class="about" aria-labelledby="about-heading">
           <p class="about_lead">
             A singleplayer bullet hell RPG heavily inspired by Realm of the Mad
-            God and Hammerwatch. Pick a class, dodge through screens full of projectiles,
-            progress through the story and get better loot!
+            God and Hammerwatch. Pick a class, dodge through screens full of
+            projectiles, progress through the story and get better loot!
           </p>
           <p class="about_body about_body--muted">
             Heroes of Crimson is a work in progress, so expect things to change
@@ -42,7 +42,7 @@
 <script setup lang="ts">
 const GAME_VERSION = "0.0.1";
 const DOWNLOAD_URL =
-  "hhttps://drive.google.com/file/d/1Q1TSoc1HCRYR2paQiXfmPfs3eYmS_kN9/view?usp=sharing";
+  "https://drive.google.com/file/d/1Q1TSoc1HCRYR2paQiXfmPfs3eYmS_kN9/view?usp=sharing";
 </script>
 
 <style lang="scss" scoped>
