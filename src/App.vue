@@ -42,7 +42,7 @@
 <script setup lang="ts">
 const GAME_VERSION = "0.0.1";
 const DOWNLOAD_URL =
-  "https://drive.google.com/file/d/1GdXEgCbICcYwG0ltJP8lR3PpigXp6eD8/view?usp=sharing";
+  "hhttps://drive.google.com/file/d/1Q1TSoc1HCRYR2paQiXfmPfs3eYmS_kN9/view?usp=sharing";
 </script>
 
 <style lang="scss" scoped>
