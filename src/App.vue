@@ -20,7 +20,7 @@
         <section class="about" aria-labelledby="about-heading">
           <p class="about_lead">
             A singleplayer bullet hell RPG heavily inspired by Realm of the Mad
-            God. Pick a class, dodge through screens full of projectiles,
+            God and Hammerwatch. Pick a class, dodge through screens full of projectiles,
             progress through the story and get better loot!
           </p>
           <p class="about_body about_body--muted">
