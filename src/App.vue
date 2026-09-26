@@ -27,12 +27,6 @@
             Heroes of Crimson is a work in progress, so expect things to change
             between versions.
           </p>
-          <nav class="links" aria-label="Project links">
-            <a href="https://github.com/MatijaNovosel/heroes-of-crimson">
-              Source on GitHub
-            </a>
-            <a href="https://github.com/MatijaNovosel/hoc-utils">HOC Utils</a>
-          </nav>
         </section>
       </div>
     </header>
@@ -246,32 +240,6 @@ $px: 4px;
 
     &--muted {
       color: $ember;
-    }
-  }
-}
-
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 28px;
-  margin-top: clamp(8px, 2vh, 20px);
-  padding-top: clamp(6px, 1.5vh, 14px);
-
-  a {
-    color: $cream;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    text-decoration-color: $crimson;
-
-    &:hover {
-      color: $crimson-hi;
-    }
-
-    &:focus-visible {
-      outline: $px solid $cream;
-      outline-offset: $px;
     }
   }
 }
