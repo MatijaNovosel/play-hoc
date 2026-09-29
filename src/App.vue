@@ -15,6 +15,7 @@
         </h1>
         <div class="download">
           <a class="download_button" :href="DOWNLOAD_URL">Download</a>
+          <ScreenshotGallery />
           <p class="download_version">Version {{ GAME_VERSION }}</p>
         </div>
         <section class="about" aria-labelledby="about-heading">
@@ -24,8 +25,8 @@
             projectiles, progress through the story and get better loot!
           </p>
           <p class="about_body about_body--muted">
-            Heroes of Crimson is a work in progress, so expect things to change
-            between versions.
+            Heroes of Crimson is a very early work in progress, so expect things
+            to change between versions.
           </p>
         </section>
       </div>
@@ -34,6 +35,8 @@
 </template>
 
 <script setup lang="ts">
+import ScreenshotGallery from "./components/ScreenshotGallery.vue";
+
 const GAME_VERSION = "0.0.1";
 const DOWNLOAD_URL =
   "https://drive.google.com/file/d/1Q1TSoc1HCRYR2paQiXfmPfs3eYmS_kN9/view?usp=sharing";
