@@ -2,7 +2,6 @@
   <button v-if="shots.length" type="button" class="trigger" @click="open(0)">
     Screenshots
   </button>
-
   <dialog
     ref="dialogEl"
     class="gallery"
@@ -30,7 +29,6 @@
           </svg>
         </button>
       </div>
-
       <div
         class="gallery_stage"
         @touchstart.passive="onTouchStart"
@@ -49,14 +47,12 @@
             />
           </svg>
         </button>
-
         <img
           :key="shots[index]"
           class="gallery_image"
           :src="shots[index]"
           :alt="`Heroes of Crimson screenshot ${index + 1}`"
         />
-
         <button
           v-if="shots.length > 1"
           type="button"
@@ -71,7 +67,6 @@
           </svg>
         </button>
       </div>
-
       <div v-if="shots.length > 1" class="gallery_thumbs">
         <button
           v-for="(src, i) in shots"
@@ -93,7 +88,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 
-const MAX_SCREENSHOTS = 50;
+const MAX_SCREENSHOTS = 4;
 
 const shots = ref<string[]>([]);
 const index = ref(0);
@@ -112,7 +107,7 @@ async function exists(src: string) {
 
 onMounted(async () => {
   const found: string[] = [];
-  for (let i = 1; i <= MAX_SCREENSHOTS; i++) {
+  for (let i = 1; i < MAX_SCREENSHOTS; i++) {
     const src = `/${i}.png`;
     if (!(await exists(src))) break;
     found.push(src);
