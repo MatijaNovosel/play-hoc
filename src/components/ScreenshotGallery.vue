@@ -438,13 +438,4 @@ $px: 4px;
     width: 72px;
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .trigger,
-  .gallery[open],
-  .gallery_image {
-    animation: none;
-    transition: none;
-  }
-}
 </style>
