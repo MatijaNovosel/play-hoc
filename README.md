@@ -3,4 +3,4 @@
   Bullet hell RPG roguelike. Heavily based on the popular MMO Realm of the Mad God and Hammerwatch.
 </p>
 
-<img alt="image" src="https://github.com/user-attachments/assets/c15e50eb-a35e-4e4e-85f0-e23180328680" />
+<img alt="image" src="https://jizipjmjieshqxsqkvgw.supabase.co/storage/v1/object/public/bucket/play-hoc.vercel.app.png" />
