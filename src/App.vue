@@ -14,7 +14,7 @@
           />
         </h1>
         <div class="download">
-          <a class="download_button" :href="DOWNLOAD_URL">Download</a>
+          <a class="download_button" :href="DOWNLOAD_URL" download>Download</a>
           <ScreenshotGallery />
           <p class="download_version">Version {{ GAME_VERSION }}</p>
         </div>
@@ -38,8 +38,7 @@
 import ScreenshotGallery from "./components/ScreenshotGallery.vue";
 
 const GAME_VERSION = "0.0.1";
-const DOWNLOAD_URL =
-  "https://drive.google.com/file/d/1Q1TSoc1HCRYR2paQiXfmPfs3eYmS_kN9/view?usp=sharing";
+const DOWNLOAD_URL = "/heroes-of-crimson.zip";
 </script>
 
 <style lang="scss" scoped>
