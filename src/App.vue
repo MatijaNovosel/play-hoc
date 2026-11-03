@@ -20,14 +20,20 @@
         </div>
         <section class="about" aria-labelledby="about-heading">
           <p class="about_lead">
-            A singleplayer bullet hell RPG heavily inspired by Realm of the Mad
-            God and Hammerwatch. Pick a class, dodge through screens full of
-            projectiles, progress through the story and get better loot!
+            A story driven bullet hell RPG heavily inspired by Realm of the Mad
+            God and Hammerwatch. Choose your character, try not to die and
+            progress through the story!
           </p>
           <p class="about_body about_body--muted">
             Heroes of Crimson is a very early work in progress, so expect things
-            to change between versions.
+            to break and change between versions.
           </p>
+          <a
+            class="about_body about_body--author"
+            href="https://github.com/MatijaNovosel"
+          >
+            Made by Matija - link to my GitHub
+          </a>
         </section>
       </div>
     </header>
@@ -242,6 +248,17 @@ $px: 4px;
 
     &--muted {
       color: $ember;
+    }
+
+    &--author {
+      color: $crimson-hi;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+
+      &:hover {
+        color: $cream;
+        transition: 0.5s;
+      }
     }
   }
 }
