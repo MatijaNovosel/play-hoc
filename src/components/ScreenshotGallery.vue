@@ -106,8 +106,6 @@ const index = ref(0);
 const dialogEl = ref<HTMLDialogElement | null>(null);
 let touchX: number | null = null;
 
-// Resolves true once the image is fully downloaded and decoded, false if it
-// is missing or isn't a real image (e.g. an SPA fallback serving HTML).
 async function preload(src: string) {
   const img = new Image();
   img.src = src;
@@ -122,16 +120,13 @@ async function preload(src: string) {
 onMounted(async () => {
   const candidates = Array.from(
     { length: MAX_SCREENSHOTS - 1 },
-    (_, i) => `/${i + 1}.png`,
+    (_, i) => `/${i + 1}.png`
   );
   const loaded = await Promise.all(candidates.map(preload));
-  // Keep the contiguous run 1.png, 2.png, ... up to the first missing one.
   const firstMissing = loaded.indexOf(false);
-  // The trigger stays disabled (with a loader) until every screenshot is
-  // ready to show; it disappears only if none exist.
   shots.value = candidates.slice(
     0,
-    firstMissing === -1 ? candidates.length : firstMissing,
+    firstMissing === -1 ? candidates.length : firstMissing
   );
   loading.value = false;
 });
