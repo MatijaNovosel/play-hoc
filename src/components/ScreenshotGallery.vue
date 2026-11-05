@@ -113,6 +113,13 @@ onMounted(async () => {
     found.push(src);
   }
   shots.value = found;
+  // Warm the cache and decode up front so the dialog never opens on an
+  // empty stage while a large PNG is still loading.
+  for (const src of found) {
+    const img = new Image();
+    img.src = src;
+    img.decode().catch(() => {});
+  }
 });
 
 function open(i: number) {
@@ -252,6 +259,15 @@ $px: 4px;
   color: $cream;
   background: transparent;
   font-family: var(--font-pixel);
+  // Rapid arrow clicks register as double/triple clicks, which would
+  // select (and paint blue) everything inside the dialog.
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  img {
+    -webkit-user-drag: none;
+  }
 
   &::backdrop {
     background: rgba($night, 0.92);
