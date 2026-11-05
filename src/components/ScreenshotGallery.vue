@@ -1,6 +1,16 @@
 <template>
-  <button v-if="shots.length" type="button" class="trigger" @click="open(0)">
+  <button
+    v-if="loading || shots.length"
+    type="button"
+    class="trigger"
+    :disabled="loading"
+    :aria-busy="loading"
+    @click="open(0)"
+  >
     Screenshots
+    <span v-if="loading" class="trigger_loader" aria-hidden="true">
+      <i /><i /><i />
+    </span>
   </button>
   <dialog
     ref="dialogEl"
@@ -91,35 +101,39 @@ import { onMounted, ref } from "vue";
 const MAX_SCREENSHOTS = 7;
 
 const shots = ref<string[]>([]);
+const loading = ref(true);
 const index = ref(0);
 const dialogEl = ref<HTMLDialogElement | null>(null);
 let touchX: number | null = null;
 
-async function exists(src: string) {
+// Resolves true once the image is fully downloaded and decoded, false if it
+// is missing or isn't a real image (e.g. an SPA fallback serving HTML).
+async function preload(src: string) {
+  const img = new Image();
+  img.src = src;
   try {
-    const res = await fetch(src, { method: "HEAD", cache: "no-cache" });
-    const type = res.headers.get("content-type") ?? "";
-    return res.ok && type.startsWith("image/");
+    await img.decode();
+    return true;
   } catch {
     return false;
   }
 }
 
 onMounted(async () => {
-  const found: string[] = [];
-  for (let i = 1; i < MAX_SCREENSHOTS; i++) {
-    const src = `/${i}.png`;
-    if (!(await exists(src))) break;
-    found.push(src);
-  }
-  shots.value = found;
-  // Warm the cache and decode up front so the dialog never opens on an
-  // empty stage while a large PNG is still loading.
-  for (const src of found) {
-    const img = new Image();
-    img.src = src;
-    img.decode().catch(() => {});
-  }
+  const candidates = Array.from(
+    { length: MAX_SCREENSHOTS - 1 },
+    (_, i) => `/${i + 1}.png`,
+  );
+  const loaded = await Promise.all(candidates.map(preload));
+  // Keep the contiguous run 1.png, 2.png, ... up to the first missing one.
+  const firstMissing = loaded.indexOf(false);
+  // The trigger stays disabled (with a loader) until every screenshot is
+  // ready to show; it disappears only if none exist.
+  shots.value = candidates.slice(
+    0,
+    firstMissing === -1 ? candidates.length : firstMissing,
+  );
+  loading.value = false;
 });
 
 function open(i: number) {
@@ -244,6 +258,49 @@ $px: 4px;
   &:focus-visible {
     outline: $px solid $cream;
     outline-offset: $px;
+  }
+
+  &:disabled {
+    cursor: progress;
+    color: rgba($cream, 0.6);
+    text-decoration-color: rgba($crimson, 0.5);
+  }
+
+  &_loader {
+    display: inline-flex;
+    gap: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+
+    i {
+      width: 5px;
+      height: 5px;
+      background: $crimson;
+      animation: loader-blink 0.9s steps(1) infinite;
+
+      &:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+    }
+  }
+}
+
+@keyframes loader-blink {
+  0% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger_loader i {
+    animation: none;
   }
 }
 
