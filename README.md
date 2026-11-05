@@ -1,6 +1,6 @@
 <h1 align=center>Heroes of Crimson</h1>
 <p align=center>
-  Bullet hell RPG roguelike. Heavily based on the popular MMO Realm of the Mad God and Hammerwatch.
+  A story driven bullet hell RPG heavily inspired by Realm of the Mad God and Hammerwatch. Choose your character, try not to die and progress through the story!
 </p>
 
-<img alt="image" src="https://github.com/user-attachments/assets/8d1da491-c4cd-4c32-acd4-71d13e471680" />
+<img alt="image" src="https://github.com/user-attachments/assets/0cd8a4ec-3f4f-49f7-b8c0-bae1d8c1f86a" />
