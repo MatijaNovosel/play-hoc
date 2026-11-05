@@ -1,5 +1,5 @@
 <h1 align=center>Heroes of Crimson</h1>
-<p align=center>
+<p align=left>
   A story driven bullet hell RPG heavily inspired by Realm of the Mad God and Hammerwatch. Choose your character, try not to die and progress through the story!
 </p>
 
