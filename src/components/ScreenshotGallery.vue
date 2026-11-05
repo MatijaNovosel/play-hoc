@@ -293,12 +293,6 @@ $px: 4px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .trigger_loader i {
-    animation: none;
-  }
-}
-
 .gallery {
   width: 100vw;
   max-width: none;
