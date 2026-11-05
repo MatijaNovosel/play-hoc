@@ -305,8 +305,6 @@ $px: 4px;
   color: $cream;
   background: transparent;
   font-family: var(--font-pixel);
-  // Rapid arrow clicks register as double/triple clicks, which would
-  // select (and paint blue) everything inside the dialog.
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
