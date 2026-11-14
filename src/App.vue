@@ -43,7 +43,7 @@
 <script setup lang="ts">
 import ScreenshotGallery from "./components/ScreenshotGallery.vue";
 
-const GAME_VERSION = "0.0.220";
+const GAME_VERSION = "0.0.221";
 const DOWNLOAD_URL = "/heroes-of-crimson.zip";
 </script>
 
