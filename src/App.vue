@@ -28,12 +28,12 @@
             Heroes of Crimson is a very early work in progress, so expect things
             to break and change between versions.
           </p>
-          <a
-            class="about_body about_body--author"
-            href="https://github.com/MatijaNovosel"
-          >
-            Made by Matija - link to my GitHub
-          </a>
+          <div class="flex">
+            Made by Matija; send suggestions to
+            <div class="about_body about_body--author pl-1">
+              mnovosel5@gmail.com
+            </div>
+          </div>
         </section>
       </div>
     </header>
@@ -43,7 +43,7 @@
 <script setup lang="ts">
 import ScreenshotGallery from "./components/ScreenshotGallery.vue";
 
-const GAME_VERSION = "0.0.181";
+const GAME_VERSION = "0.0.389";
 const DOWNLOAD_URL = "/heroes-of-crimson.zip";
 </script>
 
