@@ -159,15 +159,7 @@ function onTouchEnd(e: TouchEvent) {
 </script>
 
 <style lang="scss" scoped>
-$sky: #6c2c52;
-$sky-4: #37162d;
-$night: #02050e;
-$cream: #f5d7bf;
-$crimson-hi: #f04a42;
-$crimson: #dc2330;
-$ridge: #2d3a78;
-
-$px: 4px;
+@use "../styles/tokens" as *;
 
 @mixin round-button($size) {
   display: inline-flex;

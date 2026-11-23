@@ -55,18 +55,7 @@ const DOWNLOAD_URL = "/heroes-of-crimson.zip";
 </script>
 
 <style lang="scss" scoped>
-$sky: #6c2c52;
-$sky-2: #5a2446;
-$sky-3: #481d3a;
-$sky-4: #37162d;
-$night: #02050e;
-$cream: #f5d7bf;
-$crimson-hi: #f04a42;
-$crimson: #dc2330;
-$crimson-lo: #ae1e2d;
-$ember: #f26b3a;
-
-$px: 4px;
+@use "./styles/tokens" as *;
 
 .page {
   display: flex;
