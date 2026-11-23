@@ -29,7 +29,14 @@
             to break and change between versions.
           </p>
           <div class="flex">
-            Made by Matija; send suggestions to
+            Made by Matija •
+            <a
+              class="about_body about_body--author pl-1"
+              href="https://github.com/MatijaNovosel"
+            >
+              GitHub
+            </a>
+            <span class="pl-1"> • </span>
             <div class="about_body about_body--author pl-1">
               mnovosel5@gmail.com
             </div>
