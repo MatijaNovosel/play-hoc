@@ -98,7 +98,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 
-const MAX_SCREENSHOTS = 7;
+const MAX_SCREENSHOTS = 8;
 
 const shots = ref<string[]>([]);
 const loading = ref(true);
@@ -315,10 +315,7 @@ $px: 4px;
 
   &::backdrop {
     background: rgba($night, 0.92);
-  }
-
-  &[open] {
-    animation: gallery-in 0.25s steps(4) both;
+    animation: gallery-in 0.25s steps(4) backwards;
   }
 
   &_inner {
@@ -384,7 +381,6 @@ $px: 4px;
     object-fit: contain;
     image-rendering: pixelated;
     box-shadow: 0 0 0 $px $ridge;
-    animation: shot-in 0.2s steps(3) both;
   }
 
   &_nav {
@@ -459,15 +455,6 @@ $px: 4px;
 }
 
 @keyframes gallery-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes shot-in {
   from {
     opacity: 0;
   }
