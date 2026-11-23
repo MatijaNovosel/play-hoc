@@ -23,19 +23,14 @@
   >
     <div class="gallery_inner">
       <div class="gallery_bar">
-        <span class="gallery_count" aria-live="polite">
-          {{ index + 1 }} / {{ shots.length }}
-        </span>
         <button
           type="button"
           class="gallery_close"
           aria-label="Close"
           @click="close"
         >
-          <svg viewBox="0 0 7 7" aria-hidden="true">
-            <path
-              d="M0 0h1v1H0zM1 1h1v1H1zM2 2h1v1H2zM3 3h1v1H3zM4 4h1v1H4zM5 5h1v1H5zM6 6h1v1H6zM6 0h1v1H6zM5 1h1v1H5zM4 2h1v1H4zM2 4h1v1H2zM1 5h1v1H1zM0 6h1v1H0z"
-            />
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
           </svg>
         </button>
       </div>
@@ -51,10 +46,8 @@
           aria-label="Previous screenshot"
           @click="step(-1)"
         >
-          <svg viewBox="0 0 4 7" aria-hidden="true">
-            <path
-              d="M3 0h1v1H3zM2 1h1v1H2zM1 2h1v1H1zM0 3h1v1H0zM1 4h1v1H1zM2 5h1v1H2zM3 6h1v1H3z"
-            />
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7" />
           </svg>
         </button>
         <img
@@ -70,10 +63,8 @@
           aria-label="Next screenshot"
           @click="step(1)"
         >
-          <svg viewBox="0 0 4 7" aria-hidden="true">
-            <path
-              d="M0 0h1v1H0zM1 1h1v1H1zM2 2h1v1H2zM3 3h1v1H3zM2 4h1v1H2zM1 5h1v1H1zM0 6h1v1H0z"
-            />
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
@@ -178,57 +169,39 @@ $ridge: #2d3a78;
 
 $px: 4px;
 
-@mixin notched {
-  clip-path: polygon(
-    0 $px * 2,
-    $px $px * 2,
-    $px $px,
-    $px * 2 $px,
-    $px * 2 0,
-    calc(100% - #{$px * 2}) 0,
-    calc(100% - #{$px * 2}) $px,
-    calc(100% - #{$px}) $px,
-    calc(100% - #{$px}) $px * 2,
-    100% $px * 2,
-    100% calc(100% - #{$px * 2}),
-    calc(100% - #{$px}) calc(100% - #{$px * 2}),
-    calc(100% - #{$px}) calc(100% - #{$px}),
-    calc(100% - #{$px * 2}) calc(100% - #{$px}),
-    calc(100% - #{$px * 2}) 100%,
-    $px * 2 100%,
-    $px * 2 calc(100% - #{$px}),
-    $px calc(100% - #{$px}),
-    $px calc(100% - #{$px * 2}),
-    0 calc(100% - #{$px * 2})
-  );
-}
-
-@mixin pixel-button {
+@mixin round-button($size) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: $size;
+  height: $size;
+  padding: 0;
   border: 0;
+  border-radius: 50%;
   cursor: pointer;
-  font-family: var(--font-pixel);
-  color: $cream;
-  background: $sky-4;
-  box-shadow: inset 0 0 0 $px rgba($cream, 0.35);
-  @include notched;
-  transition: transform 80ms steps(2);
+  color: #fff;
+  background: #000;
+  box-shadow: 0 2px 8px rgba(#000, 0.4);
+  transition: background-color 120ms ease;
 
   &:hover {
-    box-shadow: inset 0 0 0 $px $cream;
+    background: #222;
   }
 
   &:focus-visible {
-    outline: none;
-    box-shadow: inset 0 0 0 $px $crimson-hi;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
   }
 
   svg {
     display: block;
-    fill: currentColor;
-    shape-rendering: crispEdges;
+    width: 50%;
+    height: 50%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 }
 
@@ -335,26 +308,13 @@ $px: 4px;
   &_bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: min(100%, 1400px);
     margin: 0 auto;
   }
 
-  &_count {
-    font-size: 28px;
-    line-height: 1;
-    color: rgba($cream, 0.8);
-  }
-
   &_close {
-    @include pixel-button;
-    width: 48px;
-    height: 48px;
-
-    svg {
-      width: 21px;
-      height: 21px;
-    }
+    @include round-button(48px);
   }
 
   &_stage {
@@ -384,18 +344,11 @@ $px: 4px;
   }
 
   &_nav {
-    @include pixel-button;
+    @include round-button(56px);
     position: absolute;
     z-index: 1;
     top: 50%;
-    width: 52px;
-    height: 72px;
     transform: translateY(-50%);
-
-    svg {
-      width: 16px;
-      height: 28px;
-    }
 
     &--prev {
       left: 0;
@@ -477,8 +430,8 @@ $px: 4px;
   }
 
   .gallery_nav {
-    width: 40px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
   }
 
   .gallery_thumb {
