@@ -89,7 +89,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 
-const MAX_SCREENSHOTS = 8;
+const MAX_SCREENSHOTS = 9;
 
 const shots = ref<string[]>([]);
 const loading = ref(true);
