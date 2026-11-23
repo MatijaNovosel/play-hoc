@@ -14,7 +14,14 @@
           />
         </h1>
         <div class="download">
-          <a class="download_button" :href="DOWNLOAD_URL" download>Download</a>
+          <a class="download_button" :href="DOWNLOAD_URL" download>
+            <svg class="download_icon" viewBox="0 0 9 9" aria-hidden="true">
+              <path
+                d="M4 0h1v5H4zM2 3h1v1H2zM3 4h1v1H3zM6 3h1v1H6zM5 4h1v1H5zM0 6h1v3H0zM8 6h1v3H8zM1 8h7v1H1z"
+              />
+            </svg>
+            Download
+          </a>
           <ScreenshotGallery />
           <p class="download_version">Version {{ GAME_VERSION }}</p>
         </div>
@@ -29,17 +36,13 @@
             to break and change between versions.
           </p>
           <div class="flex">
-            Made by Matija •
+            Made by Matija, link to my
             <a
               class="about_body about_body--author pl-1"
               href="https://github.com/MatijaNovosel"
             >
-              GitHub
-            </a>
-            <span class="pl-1"> • </span>
-            <div class="about_body about_body--author pl-1">
-              mnovosel5@gmail.com
-            </div>
+              GitHub </a
+            >!
           </div>
         </section>
       </div>
@@ -163,20 +166,19 @@ const DOWNLOAD_URL = "/heroes-of-crimson.zip";
 
   &_button {
     position: relative;
-    display: inline-block;
-    padding: clamp(6px, 1vh, 10px) 44px clamp(8px, 1.4vh, 14px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: clamp(4px, 0.7vh, 7px) 30px clamp(6px, 1vh, 9px);
     font-family: var(--font-pixel);
-    font-size: clamp(28px, 4.6vh, 44px);
+    font-size: clamp(20px, 3.2vh, 30px);
     line-height: 1;
     color: $cream;
     text-decoration: none;
-    text-shadow: 0 $px 0 $crimson-lo;
-    background: linear-gradient(
-      to bottom,
-      $crimson-hi 0 34%,
-      $crimson 34% 68%,
-      $crimson-lo 68% 100%
-    );
+    background: $crimson;
+    --shade:
+      inset 0 #{-$px} 0 #{$crimson-lo}, inset 0 #{$px * 0.5} 0 #{$crimson-hi};
+    box-shadow: var(--shade);
     clip-path: polygon(
       0 $px * 2,
       $px $px * 2,
@@ -199,20 +201,31 @@ const DOWNLOAD_URL = "/heroes-of-crimson.zip";
       $px calc(100% - #{$px * 2}),
       0 calc(100% - #{$px * 2})
     );
-    transition: transform 80ms steps(2);
+    transition: background-color 80ms steps(2);
 
     &:hover {
-      transform: translateY(-$px);
+      background: $crimson-hi;
     }
 
     &:active {
-      transform: translateY($px);
+      --shade: inset 0 #{$px} 0 #{$crimson-lo};
+      background: $crimson;
     }
 
     &:focus-visible {
       outline: none;
-      box-shadow: inset 0 0 0 $px $cream;
+      box-shadow:
+        inset 0 0 0 $px $cream,
+        var(--shade);
     }
+  }
+
+  &_icon {
+    flex: none;
+    width: 0.55em;
+    height: 0.55em;
+    fill: currentColor;
+    shape-rendering: crispEdges;
   }
 
   &_version {
